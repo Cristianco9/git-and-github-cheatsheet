@@ -152,3 +152,202 @@ GitHub Pages allows you to:
 - Access the site via a generated URL  
 
 Commonly used for portfolios, documentation, and demos.
+
+---
+
+## Git Commands Cheat Sheet
+
+### `git`
+The base command used to execute any Git instruction.
+
+```bash
+git <command>
+```
+
+---
+
+### `gitk`
+
+Opens a graphical user interface (GUI) for Git that displays detailed information 
+about:
+
+- Commits
+- Branches
+- File history
+
+> ℹ️ Note:
+> On some systems, gitk is not installed by default and must be installed 
+separately using a package manager.
+
+```bash
+gitk
+```
+
+---
+
+### `git gui`
+
+Opens a graphical Git interface that allows you to:
+
+- Create commits
+- Browse project files
+- Perform basic Git actions visually
+
+> ℹ️ Note:
+> Like gitk, git gui may require a separate installation on some systems.
+
+```bash
+git gui
+```
+---
+
+### `git clone`
+
+Clones a remote repository into the local directory where the command is executed.
+
+- Creates a full copy of the repository
+- Includes all commit history
+
+```bash
+git clone https://github.com/username/repository.git
+```
+
+---
+
+> ⚠️ Common mistake:
+> Trying to run git clone inside an already initialized repository.
+
+### `git init`
+
+Initializes a new Git repository in the current directory.
+
+```bash
+git init
+```
+
+Used when starting a project from scratch.
+
+---
+
+### `git add`
+
+Adds files from the working directory to the staging area.
+
+Add a specific file
+
+```bash
+git add file.txt
+```
+
+Add all modified and new files in the current directory
+
+```bash
+git add .
+```
+
+Add all files in the project (tracked and untracked)
+
+```bash
+git add -A
+```
+
+> ⚠️ Common mistake:
+> Forgetting to run git add before committing changes.
+
+---
+
+### `git mv`
+
+Moves or renames files that are tracked by Git.
+
+Rename or move a file
+
+```bash
+git mv old-name.txt new-name.txt
+```
+
+Force move or rename
+
+```bash
+git mv -f old-name.txt new-name.txt
+```
+
+Equivalent long option:
+
+```bash
+git mv --force old-name.txt new-name.txt
+```
+
+Skip move or rename
+
+```bash
+git mv -s old-name.txt new-name.txt
+```
+
+---
+
+### `git revert HEAD`
+
+Reverts the changes introduced by the last commit, creating a new commit that 
+undoes those changes.
+
+```bash
+git revert HEAD
+```
+
+> ℹ️ Safe for shared repositories because it does not rewrite history.
+
+---
+
+### `Git Reset` 
+
+> (Advanced – Use with Caution ⚠️)
+
+```bash
+git reset --hard
+```
+
+Resets:
+
+- HEAD
+- Staging Area (INDEX)
+- Working Directory (WD)
+
+All changes after the specified commit are permanently deleted.
+
+```bash
+git reset 48ba633d9d23b634d6965a06e518e47290046806 --hard
+```
+
+> ⚠️ Danger:
+> This command cannot be undone.
+
+---
+
+### `git reset --soft`
+
+Moves HEAD to a previous commit while:
+
+- Keeping changes in the staging area
+- Keeping changes in the working directory
+
+```bash
+git reset ce8d510e4315d40f95f947f6a9cb712b1579fe23 --soft
+```
+
+Used when you want to rewrite commits without losing work.
+
+---
+
+### `git reset --mixed`
+
+Moves HEAD to a previous commit while:
+
+- Clearing the staging area
+- Keeping changes in the working directory
+
+```bash
+git reset 48ba633d9d23b634d6965a06e518e47290046806 --mixed
+```
+
+> ℹ️ This is the default behavior of git reset if no flag is provided.
