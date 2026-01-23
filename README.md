@@ -11,6 +11,7 @@
 ## Git and GitHub
 
 ### What is Git?
+
 Git is a **distributed version control system** created by **Linus Torvalds** to 
 allow multiple engineers and developers to work **in parallel** on the Linux kernel.
 
@@ -21,6 +22,7 @@ of a project.
 ---
 
 ### What is GitHub?
+
 GitHub is a **collaborative development platform** that hosts projects using Git.
 
 - Released in **2008**
@@ -36,6 +38,7 @@ GitHub is a **collaborative development platform** that hosts projects using Git
 ## Core Git Concepts
 
 ### Staging Area
+
 The **staging area** is a temporary space in memory where Git stores the list of 
 **tracked files** after running:
 
@@ -158,6 +161,7 @@ Commonly used for portfolios, documentation, and demos.
 ## Git Commands Cheat Sheet
 
 ### `git`
+
 The base command used to execute any Git instruction.
 
 ```bash
@@ -355,6 +359,7 @@ git reset 48ba633d9d23b634d6965a06e518e47290046806 --mixed
 ---
 
 ### `git rm --cached`
+
 Removes a file **from the staging area only**.
 
 - The file is **not deleted** from the disk
@@ -541,8 +546,8 @@ Searches commits by specific keywords in the changes.
 
 ```bash
 git log -S "header"
-git log -S "blogpost"
-git log -S "hyperblog"
+git log -S "products"
+git log -S "router"
 ```
 
 ---
@@ -585,6 +590,265 @@ Lists all tags and the commits they reference.
 ```bash
 git show-ref --tags
 ```
+
+---
+
+### `git show --branch`
+
+Displays existing branches in the project and their history.
+
+```bash
+git show --branch
+```
+
+Useful for understanding how branches relate to commits.
+
+---
+
+### `git status`
+
+Shows the current state of the repository:
+
+- Modified files
+- Staged files
+- Untracked files
+- Current branch
+
+```bash
+git status
+```
+
+> ⭐ Run this command often.
+
+---
+
+### `git branch`
+
+Lists all local branches in the repository.
+
+```bash
+git branch
+```
+
+---
+
+### `git branch -r`
+
+Lists all remote branches.
+
+```bash
+git branch -r
+```
+
+---
+
+### `git branch "new-branch-name"`
+
+##### Create a new branch
+
+Creates a new branch without switching to it.
+
+```bash
+git branch DevOps
+```
+
+---
+
+### `git branch -m "new-name"`
+
+##### Rename a branch
+
+Renames an existing branch.
+
+```bash
+git branch -m hotfix
+```
+
+---
+
+### `git branch -d "branch-name"`
+
+##### Delete a branch
+
+Deletes a specific branch.
+
+```bash
+git branch -d header
+```
+
+Equivalent long option:
+
+```bash
+git branch --delete hotfix
+```
+
+---
+
+### `git branch -D "branch-name"`
+
+##### Force delete a branch
+
+Deletes a branch even if it has not been merged.
+
+```bash
+git branch -D feature-x
+```
+
+> ⚠️ Warning:
+> Use only when you are sure the branch is no longer needed.
+
+---
+
+### `git branch -v`
+
+Displays the latest commit on each branch.
+
+```bash
+git branch -v
+```
+
+---
+
+### `git branch --merged`
+
+Lists branches that have been merged into the current branch.
+
+```bash
+git branch --merged
+```
+
+---
+
+### `git branch --no-merged`
+
+Lists branches that have not been merged into the current branch.
+
+```bash
+git branch --no-merged
+```
+
+---
+
+### `git switch`
+
+Switches between branches.
+
+```bash
+git switch home
+```
+
+> ℹ️ Recommended over checkout for branch switching.
+
+---
+
+### `git checkout`
+
+Used to:
+
+- Switch between branches
+- Restore previous versions of files
+
+Switch branches
+
+```bash
+git checkout header
+```
+
+Return to the previous branch
+
+```bash
+git checkout -
+```
+
+---
+
+### `git checkout -b "new-branch-name"`
+
+##### Create and switch to a new branch
+
+Creates a new branch and switches to it immediately.
+
+```bash
+git checkout -b header
+```
+
+---
+
+### `git commit -m "message"`
+
+Commits staged files to the repository with a commit message.
+
+```bash
+git commit -m "the first commit"
+```
+
+> ⚠️ Common mistake:
+> Committing with unclear or empty messages.
+
+---
+
+### `git commit -am "message"`
+
+Stages and commits previously tracked files only.
+
+```bash
+git commit -am "update styles"
+```
+
+> ⚠️ Common mistake:
+> Assuming this command includes new (untracked) files.
+
+---
+
+### `git commit --amend -m "message"`
+
+Changes the commit message of the last commit.
+
+```bash
+git commit --amend -m "updated commit message"
+```
+
+---
+
+### `git commit --amend --no-edit`
+
+Adds changes to the last commit without changing the message.
+
+```bash
+git commit --amend --no-edit
+```
+
+---
+
+### `git diff`
+
+##### Comparing Changes
+
+Shows differences between:
+
+- Files
+- Commits
+- Versions
+
+```bash
+git diff 48ba633d9d23b634d6965a06e518e47290046806 \
+c327a24e4603f8d8ef166f99ea685b3d690a830b
+```
+
+---
+
+### `git merge`
+
+###### Merging
+
+Merges changes from a specified branch into the current branch.
+
+```bash
+git merge feature-branch
+```
+
+> ⚠️ Common mistake:
+> Merging without first pulling the latest changes from the remote repository.
 
 ---
 
