@@ -351,3 +351,240 @@ git reset 48ba633d9d23b634d6965a06e518e47290046806 --mixed
 ```
 
 > ℹ️ This is the default behavior of git reset if no flag is provided.
+
+---
+
+### `git rm --cached`
+Removes a file **from the staging area only**.
+
+- The file is **not deleted** from the disk
+- Commonly used when a file should no longer be tracked
+
+```bash
+git rm --cached file.txt
+```
+
+> ⚠️ Common mistake:
+> Thinking this command deletes the file from the system.
+
+---
+
+### `git rm --force`
+
+Removes a file from:
+
+- Git tracking
+- The local file system
+
+Git still keeps historical records, so the file can be recovered.
+
+```bash
+git rm --force file.txt
+```
+
+> ⚠️ Warning:
+> Use with caution. The file is deleted from disk.
+
+---
+
+### `git rm HEAD`
+
+Moves changes from the staging area back to unstaged.
+
+```bash
+git rm HEAD file.txt
+```
+
+> ℹ️ This is useful when you staged a file by mistake.
+
+---
+
+### `git bisect`
+
+Used to search through commits to identify where a bug was introduced.
+
+Commits are labeled as:
+
+- good / new
+- bad / old
+
+---
+
+### `git bisect start`
+
+Starts the bisect process.
+
+```bash
+git bisect start
+```
+
+---
+
+### `git bisect bad`
+
+Marks the current commit as bad.
+
+```bash
+git bisect bad
+```
+
+---
+
+### `git bisect good`
+
+Marks a commit as good.
+
+```bash
+git bisect good v2.6.13.rc2
+```
+
+---
+
+### `git bisect reset`
+
+Clears all bisect labels and returns to the original branch state.
+
+```bash
+git bisect reset
+```
+
+---
+
+### `git grep`
+
+Searches for regular expressions inside project files.
+
+```bash
+git grep "function"
+```
+
+Useful for quickly finding code across the repository.
+
+---
+
+### `git reflog`
+
+Displays the complete history of HEAD, including:
+
+- Deleted commits
+- Reset operations
+
+```bash
+git reflog
+```
+
+> ℹ️ Very useful for recovering lost commits.
+
+---
+
+### `git log`
+
+Displays the commit history of a repository or a specific file.
+
+```bash
+git log
+git log history.txt
+```
+
+---
+
+### `git log -p`
+
+Shows commit history including the changes (diffs).
+
+```bash
+git log -p
+```
+
+---
+
+### `git log --stat`
+
+Displays commit history with detailed statistics of file changes.
+
+```bash
+git log --stat
+```
+
+---
+
+### `git log --all`
+
+Shows all commits across all branches.
+
+```bash
+git log --all
+```
+
+---
+
+### `git log --all --graph --decorate --oneline`
+
+Displays a graphical representation of:
+
+- Branches
+- Merges
+- Commits
+- Fetch and merge history
+
+```bash
+git log --all --graph --decorate --oneline
+```
+
+> ⭐ Highly recommended for understanding branch workflows.
+
+---
+
+### `git log -S "keyword"`
+
+Searches commits by specific keywords in the changes.
+
+```bash
+git log -S "header"
+git log -S "blogpost"
+git log -S "hyperblog"
+```
+
+---
+
+### `git log --pretty=format:""`
+
+Displays commit history using a custom format.
+
+```bash
+git log --pretty=format:"%h - %an, %ar : %s"
+```
+
+Common placeholders:
+
+- %h → commit hash
+- %an → author name
+- %ar → relative date
+- %s → commit message
+
+---
+
+### `git show`
+
+Displays detailed information about:
+
+- A specific commit
+- File changes
+- Branch references
+
+```bash
+git show
+```
+
+---
+
+### `git show-ref --tags`
+
+Lists all tags and the commits they reference.
+
+```bash
+git show-ref --tags
+```
+
+---
+
