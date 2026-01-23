@@ -852,3 +852,196 @@ git merge feature-branch
 
 ---
 
+### `git merge --abort`
+
+Cancels an ongoing merge and **returns the repository to the state before the merge**.
+
+```bash
+git merge --abort
+```
+
+> ⚠️ Useful when a merge causes conflicts and you want to stop the process.
+
+---
+
+### `git rebase`
+
+##### Rebase
+
+Applies the entire history of one branch on top of another branch, rewriting the 
+commit history.
+
+```bash
+git rebase main
+```
+
+> ⚠️ Important rule:
+> Use `rebase` only on local branches.
+> Never rebase commits that have already been pushed to a shared remote repository.
+
+---
+
+### `git tag`
+
+##### Tags (Versioning)
+
+Lists all version tags in the project.
+
+```bash
+git tag
+```
+
+---
+
+### `git tag -a -m`
+
+Creates an annotated tag for a specific commit.
+
+- -a → add tag
+- -m → message
+
+Common convention: v0.1, v1.0, etc.
+
+```bash
+git tag -a v0.1 -m "Result of the first 23 classes of the course." d724093
+```
+
+---
+
+### `git tag -d`
+
+Deletes a specific tag locally.
+
+```bash
+git tag -d v0.4
+```
+
+---
+
+### `git fetch`
+
+##### Remote Repository Synchronization
+
+Downloads the latest changes from the remote repository without merging them.
+
+```bash
+git fetch
+```
+
+> ⭐ Safe way to see changes before applying them.
+
+---
+
+### `git pull`
+
+Fetches and merges changes from the remote repository into the local branch.
+
+```bash
+git pull
+```
+
+Keeps the local repository up to date with remote changes.
+
+---
+
+### `git pull origin "branch-name"`
+
+Pulls changes from a specific remote and branch.
+
+```bash
+git pull origin main
+```
+
+---
+
+### `git pull origin --allow-unrelated-histories`
+
+Merges a remote branch with a local branch even if their histories are unrelated.
+
+```bash
+git pull origin main --allow-unrelated-histories
+```
+
+> ⚠️ Use this only when combining projects that started independently.
+
+---
+
+### `git push`
+
+##### Pushing Changes
+
+Pushes the latest local commits to the remote repository.
+
+```bash
+git push
+```
+
+---
+
+### `git push origin "branch"`
+
+Pushes commits to a specific remote branch.
+
+```bash
+git push origin main
+```
+
+---
+
+### `git push origin --delete "branch-name"`
+
+Deletes a remote branch or tag.
+
+``` bash
+git push origin --delete header
+git push origin --delete v0.3
+```
+
+> ⚠️ Be careful: this affects the remote repository.
+
+---
+
+### `git push origin --tags`
+
+Pushes all local tags to the remote repository.
+
+```bash
+git push origin --tags
+```
+
+---
+
+### `git push origin :refs/tags/"tag-name"`
+
+Deletes a specific tag from the remote repository.
+
+```bash
+git push origin :refs/tags/v0.4
+```
+
+---
+
+### `git config`
+
+##### Git Configuration
+
+Accesses Git configuration settings.
+
+```bash
+git config
+```
+
+---
+
+### `git config --global user.email`
+
+Updates the global user email for Git commits.
+
+```bash
+git config --global user.email "mynew-email@theserver.com"
+```
+
+> ℹ️ This email should match the one used in your GitHub account.
+
+---
+
