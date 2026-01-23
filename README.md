@@ -460,7 +460,7 @@ git bisect reset
 Searches for regular expressions inside project files.
 
 ```bash
-git grep "function"
+git grep <function>
 ```
 
 Useful for quickly finding code across the repository.
@@ -642,7 +642,7 @@ git branch -r
 
 ---
 
-### `git branch "new-branch-name"`
+### `git branch <new-branch-name>`
 
 ##### Create a new branch
 
@@ -654,7 +654,7 @@ git branch DevOps
 
 ---
 
-### `git branch -m "new-name"`
+### `git branch -m <new-name>`
 
 ##### Rename a branch
 
@@ -666,7 +666,7 @@ git branch -m hotfix
 
 ---
 
-### `git branch -d "branch-name"`
+### `git branch -d <branch-name>`
 
 ##### Delete a branch
 
@@ -684,7 +684,7 @@ git branch --delete hotfix
 
 ---
 
-### `git branch -D "branch-name"`
+### `git branch -D <branch-name>`
 
 ##### Force delete a branch
 
@@ -762,7 +762,7 @@ git checkout -
 
 ---
 
-### `git checkout -b "new-branch-name"`
+### `git checkout -b <new-branch-name>`
 
 ##### Create and switch to a new branch
 
@@ -944,7 +944,7 @@ Keeps the local repository up to date with remote changes.
 
 ---
 
-### `git pull origin "branch-name"`
+### `git pull origin <branch-name>`
 
 Pulls changes from a specific remote and branch.
 
@@ -978,7 +978,7 @@ git push
 
 ---
 
-### `git push origin "branch"`
+### `git push origin <branch>`
 
 Pushes commits to a specific remote branch.
 
@@ -988,7 +988,7 @@ git push origin main
 
 ---
 
-### `git push origin --delete "branch-name"`
+### `git push origin --delete <branch-name>`
 
 Deletes a remote branch or tag.
 
@@ -1011,7 +1011,7 @@ git push origin --tags
 
 ---
 
-### `git push origin :refs/tags/"tag-name"`
+### `git push origin :refs/tags/<tag-name>`
 
 Deletes a specific tag from the remote repository.
 
@@ -1042,6 +1042,231 @@ git config --global user.email "mynew-email@theserver.com"
 ```
 
 > ℹ️ This email should match the one used in your GitHub account.
+
+---
+
+### `git config --global alias.<name>`
+
+##### Git Aliases
+
+Creates a **permanent alias** for a Git command.
+
+Aliases help reduce typing and improve productivity.
+
+```bash
+git config --global alias.tree "log --all --graph --decorate --oneline"
+```
+
+Now you can run:
+
+```bash
+git tree
+```
+
+> ⭐ Recommended for frequently used commands.
+
+--- 
+
+### `git remote`
+
+##### Remote Repositories
+
+Lists the names of remote repositories linked to the project.
+
+```bash
+git remote
+```
+
+---
+
+### `git remote -v`
+
+Shows the remote repository URLs used for:
+
+- Fetch
+- Push
+
+```bash
+git remote -v
+```
+
+---
+
+### `git remote add origin`
+
+Adds a remote repository to the project.
+
+```bash
+git remote add origin https://github.com/username/repository.git
+```
+
+> ⚠️ Common mistake:
+> Trying to push before adding a remote origin.
+
+---
+
+### `git stash`
+
+##### Stashing Changes
+
+Saves current changes in a temporary memory area without committing them.
+
+```bash
+git stash
+```
+
+Useful when switching branches with uncommitted work.
+
+---
+
+### `git stash list`
+
+Displays all saved stashes.
+
+```bash
+git stash list
+```
+
+---
+
+### `git stash pop`
+
+Applies the most recent stash and removes it from memory.
+
+```bash
+git stash pop
+```
+
+---
+
+### `git stash branch`
+
+Creates a new branch and applies the stashed changes to it.
+
+```bash
+git stash branch hotfix
+```
+
+---
+
+### `git stash drop`
+
+Deletes the most recent stash.
+
+```bash
+git stash drop
+```
+
+---
+
+### `git stash drop stash@{id}`
+
+Deletes a specific stash.
+
+```bash
+git stash drop stash@{ec43825}
+```
+
+---
+
+### `git stash save "message"`
+
+Saves changes with a descriptive message.
+
+```bash
+git stash save "temporary change in the homepage"
+```
+
+> ℹ️ stash save is deprecated but still commonly used in legacy workflows.
+
+---
+
+### `git stash -u`
+
+Stashes all files, including untracked files.
+
+```bash
+git stash -u
+```
+
+---
+
+### `git stash clear`
+
+Deletes all saved stashes.
+
+```bash
+git stash clear
+```
+
+> ⚠️ This action cannot be undone.
+
+---
+
+### `git stash apply`
+
+Applies the most recent stash without removing it from memory.
+
+```bash
+git stash apply
+```
+
+---
+
+### `git stash apply stash@{id}`
+
+Applies a specific stash.
+
+```bash
+git stash apply stash@{ec43825}
+```
+
+---
+
+### `git stash branch <branch> stash@{id}`
+
+Creates a new branch and applies a specific stash to it.
+
+```bash
+git stash branch hotfix stash@{ec43825}
+```
+
+---
+
+### `git clean --dry-run`
+
+##### Cleaning Untracked Files
+
+Shows which untracked files would be removed.
+
+```bash
+git clean --dry-run
+```
+
+> ⭐ Always run this before deleting files.
+
+---
+
+### `git clean -f`
+
+Deletes untracked files (does not delete directories).
+
+```bash
+git clean -f
+```
+
+---
+
+### `git clean -df`
+
+Deletes untracked files and directories.
+
+```bash
+git clean -df
+```
+
+> ⚠️ Danger:
+> These files cannot be recovered once deleted.
 
 ---
 
