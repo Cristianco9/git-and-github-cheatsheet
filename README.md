@@ -1270,3 +1270,133 @@ git clean -df
 
 ---
 
+### `git clean -xf`
+
+Deletes:
+
+- Untracked files
+- Ignored files
+
+```bash
+git clean -xf
+```
+
+> ⚠️ Danger:
+> This removes ignored files (like those in .gitignore).
+> Use only if you are absolutely sure.
+
+---
+
+### `git clean -e <file>`
+
+Deletes untracked files except the specified file.
+
+```bash
+git clean -e UserData.sql
+```
+
+---
+
+### `git clean --exclude <file>`
+
+Same behavior as -e, using the long option format.
+
+```bash
+git clean --exclude UserData.sql
+```
+
+---
+
+### `git cherry-pick`
+
+##### Applying Specific Commits
+
+Applies a specific commit to the current branch using its hash.
+
+```bash
+git cherry-pick f449d87
+```
+
+> ⭐ Useful when you need one fix from another branch without merging everything.
+
+> ⚠️ Common mistake:
+> Cherry-picking large or dependent commits, which may cause conflicts.
+
+---
+
+### `git shortlog`
+
+##### Contribution History
+
+Displays a summary of commit history and contributors.
+
+```bash
+git shortlog
+```
+
+---
+
+### `git shortlog -sn`
+
+Shows how many commits each contributor has made.
+
+```bash
+git shortlog -sn
+```
+
+---
+
+### `git shortlog -sn --all`
+
+Includes commits that were later removed or rewritten.
+
+```bash
+git shortlog -sn --all
+```
+
+---
+
+### `git shortlog -sn --all --no-merges`
+
+Counts commits per contributor excluding merge commits.
+
+```bash
+git shortlog -sn --all --no-merges
+```
+
+---
+
+### `git blame`
+
+##### Line-by-Line History
+
+Shows who last modified each line of a file.
+
+```bash
+git blame blogpost.html
+```
+
+> ℹ️ Useful for understanding why a change was made.
+
+---
+
+### `git blame -L <start>,<end>`
+
+Displays blame information for a specific line range.
+
+```bash
+git blame blogpost.html -L 35,54
+```
+
+---
+
+### `git blame -L <start>,<end> -c`
+
+Displays blame information with cleaner, more readable formatting.
+
+```bash
+git blame blogpost.html -L 35,54 -c
+```
+
+---
+
