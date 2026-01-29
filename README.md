@@ -35,6 +35,15 @@ GitHub is a **collaborative development platform** that hosts projects using Git
 
 ---
 
+## Git and GitHub workflow
+
+![Git and GitHub workflow](images/git-and-github-workflow.png)
+
+> **Git** uses a distributed **version control workflow**, based on **states** and 
+**commands** that allow **synchronizing** the local repository with a remote one.
+
+---
+
 ## Core Git Concepts
 
 ### Staging Area
