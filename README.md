@@ -35,6 +35,32 @@ GitHub is a **collaborative development platform** that hosts projects using Git
 
 ---
 
+## The `.gitignore` File
+
+### What is `.gitignore`?
+
+The `.gitignore` file tells Git **which files or folders should NOT be tracked** 
+by version control.
+
+These files still exist on your computer, but Git will ignore them when you run:
+
+- `git status`
+- `git add .`
+- `git commit`
+
+### Why is `.gitignore` Important?
+
+It helps you avoid committing:
+
+- Dependencies
+- Build artifacts
+- Environment variables
+- Logs
+- OS-specific files
+- Sensitive data (passwords, tokens, keys)
+
+---
+
 ## Git and GitHub workflow
 
 ![Git and GitHub workflow](images/git-and-github-workflow.png)
